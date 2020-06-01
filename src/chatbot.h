@@ -29,7 +29,11 @@ public:
 
     //// STUDENT CODE
     ////
+    ChatBot(ChatBot &other);
+    ChatBot &operator=(ChatBot &other);
 
+    ChatBot(ChatBot &&other);
+    ChatBot &operator=(ChatBot &&other);
     ////
     //// EOF STUDENT CODE
 
@@ -41,6 +45,9 @@ public:
 
     // communication
     void ReceiveMessageFromUser(std::string message);
+private:
+    void CloneData(ChatBot &other);
+    void MoveData(ChatBot &other);
 };
 
 #endif /* CHATBOT_H_ */
